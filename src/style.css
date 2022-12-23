@@ -71,3 +71,6 @@ hr {
   font-weight: bolder;
   color: rgb(236, 45, 45);
 }
+#description {
+  text-transform: capitalize;
+}
