@@ -5,62 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk&family=Roboto:ital,wght@0,400;1,300;1,400&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="src/style.css" />
     <title>Weather App</title>
 </head>
 
 <body>
-    <div class="container">
-        <div clas="weather-app">
-            <h1>
-                Kyiv
-            </h1>
-            <ul>
-                <li>
-                    Friday 10:15
-                </li>
-                <li>
-                    Sunny
-                </li>
-            </ul>
-            <div class="row">
-                <div class="col-4">
-                    <img src="https://www.accuweather.com/en/ua/kyiv/324505/current-weather/324505" alt="Cloudy" />
-                    -1°C | °F
-                </div>
-                <div class="col-4">
+    <div class="container ">
+        <div class="weather-app-wrapper">
+            <div class="weather-app">
+                <div class="overmain">
+                    <h1>
+                        Kyiv
+                    </h1>
                     <ul>
                         <li>
-                            Min: -3°C
-                        </li>
-                        <li>
-                            Max: 2°C
+                            Friday 10:15
                         </li>
                     </ul>
                 </div>
-                <div class="col-4">
-                    <ul>
-                        <li>
-                            Wind: 4 km/h
-                        </li>
-                        <li>
-                            Humidity: 47%
-                        </li>
-                    </ul>
+                <div class="row">
+                    <div class="d-flex weather-temperature">
+                        <div class="col-3">
+                            <strong id="temperature">-1</strong><span class="units">°C | <a href="#">°F</a></span>
+                        </div>
+                        <div class="col-4"><img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="#"
+                                id="icon" /> <span>Cloudy</span>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+
+                <div class="row">
+                    <div class="col">
+                        <span class="min-temp-arrow">↓</span> -3° <span class="max-temp-arrow">↑</span> 2°
+                    </div>
+                    <div class="col">
+                        Wind: 4 km/h
+                    </div>
+                    <div class="col">
+                        Humidity: 47%
+                    </div>
                 </div>
             </div>
+            <small>
+                <a href="https://github.com/naskol/vanilla-weather-app" target="_blank">Open-source code</a>
+                by Anastasiia Balan
+            </small>
+
         </div>
     </div>
-    <small>
-        <a href="https://github.com/naskol/vanilla-weather-app" target="_blank">Open-source code</a>
-        by Anastasiia Balan
-    </small>
-
     </div>
-    <script src="src/style.css"></script>
+
+    <script src="src/app.js"></script>
 </body>
 
 </html>
