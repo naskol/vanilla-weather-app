@@ -61,6 +61,10 @@ hr {
 
 #description {
   text-align: center;
+  text-transform: capitalize;
+}
+
+#description ::first-letter {
 }
 
 .min-temp-arrow {
@@ -70,7 +74,4 @@ hr {
 .max-temp-arrow {
   font-weight: bolder;
   color: rgb(236, 45, 45);
-}
-#description {
-  text-transform: capitalize;
 }
