@@ -60,6 +60,15 @@ hr {
   top: -20px;
 }
 
+.weather-temperature .active {
+  color: #132238;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
 #description {
   text-align: center;
   text-transform: capitalize;

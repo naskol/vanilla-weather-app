@@ -34,10 +34,13 @@ function displayTemperature(response) {
   let feelsLikeElement = document.querySelector("#feelslike");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+  celsiusTemperature = response.data.temperature.current;
+  celsiusFellsLikeTemperature = response.data.temperature.feels_like;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
-  feelsLikeElement.innerHTML = Math.round(response.data.temperature.feels_like);
+  feelsLikeElement.innerHTML = Math.round(celsiusFellsLikeTemperature);
   windElement.innerHTML = Math.round(response.data.wind.speed);
   humidityElement.innerHTML = response.data.temperature.humidity;
   iconElement.setAttribute("src", response.data.condition.icon_url);
@@ -58,7 +61,38 @@ function handleSubmit(event) {
   search(city);
 }
 
-search("Kyiv");
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  let feelsLikeElement = document.querySelector("#feelslike");
+  feelsLikeElement.innerHTML = Math.round(
+    (celsiusFellsLikeTemperature * 9) / 5 + 32
+  );
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+function displayCelsiusTemperature(event) {
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  let feelsLikeElement = document.querySelector("#feelslike");
+  feelsLikeElement.innerHTML = Math.round(celsiusFellsLikeTemperature);
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+}
+
+let celsiusTemperature = null;
+let celsiusFellsLikeTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Kyiv");
