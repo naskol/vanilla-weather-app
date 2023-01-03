@@ -22,7 +22,7 @@
         <div class="weather-app-wrapper">
             <div class="weather-app">
 
-                <form id="search-form">
+                <form id="search-form" class="frame">
                     <div class="row">
                         <div class="col-9">
                             <input type="search" placeholder="Type a city..." class="form-control" autocomplete="off"
@@ -33,48 +33,145 @@
                         </div>
                     </div>
                 </form>
+                <div class="frame">
+                    <div class="overmain">
+                        <h1 id="city">
 
-                <div class="overmain">
-                    <h1 id="city">
+                        </h1>
+                        <ul>
+                            <li id="date">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="d-flex weather-temperature">
+                            <div class="col-2"></div>
+                            <div class="col-3">
+                                <strong id="temperature"></strong><span class="units"><a href="#" id="celsius"
+                                        class="active">°С</a> |
+                                    <a href="#" id="fahrenheit">°F</a></span>
+                            </div>
+                            <div class="col-6">
+                                <img src="#" alt="#" id="icon" /> <span id="description">Cloudy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col">
+                            Feels like <span id="feelslike"></span>°
+                        </div>
+                        <div class="col">
+                            Wind: <span id="wind"></span> km/h
+                        </div>
+                        <div class="col">
+                            Humidity: <span id="humidity"></span>%
+                        </div>
 
-                    </h1>
-                    <ul>
-                        <li id="date">
-                        </li>
-                    </ul>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="d-flex weather-temperature">
-                        <div class="col-3">
-                            <strong id="temperature"></strong><span class="units"><a href="#" id="celsius"
-                                    class="active">°С</a> |
-                                <a href="#" id="fahrenheit">°F</a></span>
+                <div class="frame">
+                    <div class="weather-forecast">
+                        <div class="row">
+                            <div class="col">
+                                <div class="weather-forecast-day">
+                                    Wed
+                                </div>
+                                <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                                    width="40" />
+                                <div class="weather-forecast-temperature">
+                                    <span class="weather-forecast-temperature-min">
+                                        <span class="arrow-up">↑</span>+6°
+                                    </span>
+                                    <span class="weather-forecast-temperature-max">
+                                        <span class="arrow-down">↓</span>+2°
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col">
+                                <div class="weather-forecast-day">
+                                    Wed
+                                </div>
+                                <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                                    width="40" />
+                                <div class="weather-forecast-temperature">
+                                    <span class="weather-forecast-temperature-min">
+                                        <span class="arrow-up">↑</span>+6°
+                                    </span>
+                                    <span class="weather-forecast-temperature-max">
+                                        <span class="arrow-down">↓</span>+2°
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col">
+                                <div class="weather-forecast-day">
+                                    Wed
+                                </div>
+                                <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                                    width="40" />
+                                <div class="weather-forecast-temperature">
+                                    <span class="weather-forecast-temperature-min">
+                                        <span class="arrow-up">↑</span>+6°
+                                    </span>
+                                    <span class="weather-forecast-temperature-max">
+                                        <span class="arrow-down">↓</span>+2°
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col">
+                                <div class="weather-forecast-day">
+                                    Wed
+                                </div>
+                                <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                                    width="40" />
+                                <div class="weather-forecast-temperature">
+                                    <span class="weather-forecast-temperature-min">
+                                        <span class="arrow-up">↑</span>+6°
+                                    </span>
+                                    <span class="weather-forecast-temperature-max">
+                                        <span class="arrow-down">↓</span>+2°
+                                    </span>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col">
+                                <div class="weather-forecast-day">
+                                    Wed
+                                </div>
+                                <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+                                    width="40" />
+                                <div class="weather-forecast-temperature">
+                                    <span class="weather-forecast-temperature-min">
+                                        <span class="arrow-up">↑</span>+6°
+                                    </span>
+                                    <span class="weather-forecast-temperature-max">
+                                        <span class="arrow-down">↓</span>+2°
+                                    </span>
+                                </div>
+                            </div>
+
+
                         </div>
-                        <div class="col-6">
-                            <img src="#" alt="#" id="icon" /> <span id="description">Cloudy</span>
-                        </div>
                     </div>
                 </div>
-                <hr />
-                <div class="row">
-                    <div class="col">
-                        Feels like <span id="feelslike"></span>°
-                    </div>
-                    <div class="col">
-                        Wind: <span id="wind"></span> km/h
-                    </div>
-                    <div class="col">
-                        Humidity: <span id="humidity"></span>%
-                    </div>
-                </div>
+
             </div>
-            <small>
+            <small class="developer-information">
                 <a href="https://github.com/naskol/vanilla-weather-app" target="_blank">Open-source code</a>
                 by Anastasiia Balan
             </small>
-
         </div>
-    </div>
     </div>
 
     <script src="src/app.js"></script>
