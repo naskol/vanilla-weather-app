@@ -24,8 +24,127 @@ function showDate() {
 }
 showDate();
 
+function formatDate(timestemp) {
+  let date = new Date(timestemp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  return day;
+}
+
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let forecast = response.data.daily;
+
+  forecastHTML = `<div class="row">
+
+        <div class="col">
+          <div class="weather-forecast-day">
+              ${formatDate(forecast[1].time)}
+          </div>
+          <img src=${forecast[1].condition.icon_url} width="40" />
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-min">
+                <span class="arrow-down">↓</span>${Math.round(
+                  forecast[1].temperature.minimum
+                )}°
+                </span>
+                <span class="weather-forecast-temperature-max">
+                <span class="arrow-up">↑</span>${Math.round(
+                  forecast[1].temperature.maximum
+                )}°
+                </span>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="weather-forecast-day">
+              ${formatDate(forecast[2].time)}
+          </div>
+          <img src=${forecast[2].condition.icon_url} width="40" />
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-min">
+                <span class="arrow-down">↓</span>${Math.round(
+                  forecast[2].temperature.minimum
+                )}°
+                </span>
+                <span class="weather-forecast-temperature-max">
+                <span class="arrow-up">↑</span>${Math.round(
+                  forecast[2].temperature.maximum
+                )}°
+                </span>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="weather-forecast-day">
+              ${formatDate(forecast[3].time)}
+          </div>
+          <img src=${forecast[3].condition.icon_url} width="40" />
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-min">
+                <span class="arrow-down">↓</span>${Math.round(
+                  forecast[3].temperature.minimum
+                )}°
+                </span>
+                <span class="weather-forecast-temperature-max">
+                <span class="arrow-up">↑</span>${Math.round(
+                  forecast[3].temperature.maximum
+                )}°
+                </span>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="weather-forecast-day">
+              ${formatDate(forecast[4].time)}
+          </div>
+          <img src=${forecast[4].condition.icon_url} width="40" />
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-min">
+                <span class="arrow-down">↓</span>${Math.round(
+                  forecast[4].temperature.minimum
+                )}°
+                </span>
+                <span class="weather-forecast-temperature-max">
+                <span class="arrow-up">↑</span>${Math.round(
+                  forecast[4].temperature.maximum
+                )}°
+                </span>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="weather-forecast-day">
+              ${formatDate(forecast[5].time)}
+          </div>
+          <img src=${forecast[5].condition.icon_url} width="40" />
+          <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-min">
+                <span class="arrow-down">↓</span>${Math.round(
+                  forecast[5].temperature.minimum
+                )}°
+                </span>
+                <span class="weather-forecast-temperature-max">
+                <span class="arrow-up">↑</span>${Math.round(
+                  forecast[5].temperature.maximum
+                )}°
+                </span>
+          </div>
+        </div>
+</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let longitude = coordinates.longitude;
+  let latitude = coordinates.latitude;
+  let apiKey = `ee44ot6560132a4246a0947ebe4a550f`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
-  console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -45,6 +164,8 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.temperature.humidity;
   iconElement.setAttribute("src", response.data.condition.icon_url);
   iconElement.setAttribute("alt", response.data.condition.icon);
+
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
