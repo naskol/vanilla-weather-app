@@ -38,98 +38,118 @@ function displayForecast(response) {
   forecastHTML = `<div class="row">
 
         <div class="col">
+        <div class="frame-forecast">
           <div class="weather-forecast-day">
               ${formatDate(forecast[1].time)}
           </div>
-          <img src=${forecast[1].condition.icon_url} width="40" />
+          <img src=${
+            forecast[1].condition.icon_url
+          } width="40" class="forecast-img" />
           <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-min">
+            <div class="weather-forecast-temperature-min">
                 <span class="arrow-down">↓</span>${Math.round(
                   forecast[1].temperature.minimum
                 )}°
-                </span>
-                <span class="weather-forecast-temperature-max">
+                </div>
+                <div class="weather-forecast-temperature-max">
                 <span class="arrow-up">↑</span>${Math.round(
                   forecast[1].temperature.maximum
                 )}°
-                </span>
+                </div>
           </div>
+        </div>
         </div>
 
         <div class="col">
+        <div class="frame-forecast">
           <div class="weather-forecast-day">
               ${formatDate(forecast[2].time)}
           </div>
-          <img src=${forecast[2].condition.icon_url} width="40" />
+          <img src=${
+            forecast[2].condition.icon_url
+          } width="40" class="forecast-img" />
           <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-min">
+            <div class="weather-forecast-temperature-min">
                 <span class="arrow-down">↓</span>${Math.round(
                   forecast[2].temperature.minimum
                 )}°
-                </span>
-                <span class="weather-forecast-temperature-max">
+                </div>
+                <div class="weather-forecast-temperature-max">
                 <span class="arrow-up">↑</span>${Math.round(
                   forecast[2].temperature.maximum
                 )}°
-                </span>
+                </div>
           </div>
+        </div>
         </div>
 
         <div class="col">
+        <div class="frame-forecast">
           <div class="weather-forecast-day">
               ${formatDate(forecast[3].time)}
           </div>
-          <img src=${forecast[3].condition.icon_url} width="40" />
+          <img src=${
+            forecast[3].condition.icon_url
+          } width="40" class="forecast-img" />
           <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-min">
+            <div class="weather-forecast-temperature-min">
                 <span class="arrow-down">↓</span>${Math.round(
                   forecast[3].temperature.minimum
                 )}°
-                </span>
-                <span class="weather-forecast-temperature-max">
+                </div>
+                <div class="weather-forecast-temperature-max">
                 <span class="arrow-up">↑</span>${Math.round(
                   forecast[3].temperature.maximum
                 )}°
-                </span>
+                </div>
+          </div>
           </div>
         </div>
 
         <div class="col">
+        <div class="frame-forecast">
           <div class="weather-forecast-day">
               ${formatDate(forecast[4].time)}
           </div>
-          <img src=${forecast[4].condition.icon_url} width="40" />
+          <img src=${
+            forecast[4].condition.icon_url
+          } width="40" class="forecast-img"/>
           <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-min">
+            <div class="weather-forecast-temperature-min">
                 <span class="arrow-down">↓</span>${Math.round(
                   forecast[4].temperature.minimum
                 )}°
-                </span>
-                <span class="weather-forecast-temperature-max">
+                </div>
+                <div class="weather-forecast-temperature-max">
                 <span class="arrow-up">↑</span>${Math.round(
                   forecast[4].temperature.maximum
                 )}°
-                </span>
+                </div>
           </div>
+        </div>
         </div>
 
         <div class="col">
+        <div class="frame-forecast">
           <div class="weather-forecast-day">
               ${formatDate(forecast[5].time)}
           </div>
-          <img src=${forecast[5].condition.icon_url} width="40" />
+          <img src=${
+            forecast[5].condition.icon_url
+          } width="40" class="forecast-img" />
           <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-min">
+            <div class="weather-forecast-temperature-min">
                 <span class="arrow-down">↓</span>${Math.round(
                   forecast[5].temperature.minimum
                 )}°
-                </span>
-                <span class="weather-forecast-temperature-max">
+                </div>
+                <div class="weather-forecast-temperature-max">
                 <span class="arrow-up">↑</span>${Math.round(
                   forecast[5].temperature.maximum
                 )}°
-                </span>
+                </div>
           </div>
+        </div>
         </div>
 </div>`;
 
@@ -195,6 +215,8 @@ function displayFahrenheitTemperature(event) {
   );
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+
+  getForecastFahrenheit();
 }
 
 function displayCelsiusTemperature(event) {
